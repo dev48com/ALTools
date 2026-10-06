@@ -1,0 +1,82 @@
+{
+  "name": "dev48-altools",
+  "displayName": "AL Tools",  
+  "publisher": "Dev48",  
+  "description": "Dev48: AL Tools provides small utilities for Business Central (AL) developers",
+  "homepage": "https://dev48.com/altools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dev48com/ALTools.git"
+  },
+  "version": "1.1.0",
+  "engines": {
+    "vscode": "^1.138.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "icon": "./icon.png",
+  "contributes": {
+    "configuration": {
+      "title": "Dev48: AL Tools",
+      "properties": {
+        "dev48-altools.dateFormat": {
+          "title": "Date Format",
+          "type": "string",
+          "default": "YYDDDHHmm",
+          "description": "Format used by Insert Date and app.json version update commands. Tokens: YYYY (year), YY (two-digit year), DDD (day of year, 001-366), MM (month), DD (day), HH (hour), mm (minute), ss (second). Other characters are inserted literally by Insert Date and omitted when updating an AL version."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "dev48.insertDate",
+        "title": "Dev48: Insert Date"
+      },
+      {
+        "command": "dev48.updateAppJsonVersion",
+        "title": "Dev48: Update Version Date in Active Project"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "dev48.insertDate",
+        "key": "ctrl+shift+i",
+        "mac": "cmd+shift+i",
+        "when": "editorTextFocus"
+      }
+      ,{
+        "command": "dev48.updateAppJsonVersion",
+        "key": "ctrl+shift+u",
+        "mac": "cmd+shift+u",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "package":"npx --yes @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.138.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "typescript-eslint": "^8.61.1",
+    "eslint": "^10.5.0",
+    "typescript": "^6.0.3",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}

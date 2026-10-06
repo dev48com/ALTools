@@ -1,0 +1,38 @@
+# Dependencies
+/node_modules/
+
+# TypeScript build output and caches
+/out/
+/dist/
+*.tsbuildinfo
+
+# VS Code extension test runtime
+/.vscode-test/
+
+# Test coverage
+/coverage/
+/.nyc_output/
+*.lcov
+
+# VSIX packages
+*.vsix
+
+# Logs and package-manager caches
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+/.npm/
+/.pnpm-store/
+
+# Environment files (keep safe examples)
+.env
+.env.*
+!.env.example
+
+# Editor and operating-system noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
